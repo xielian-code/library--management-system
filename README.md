@@ -134,3 +134,32 @@ if __name__ == '__main__':
 Flask==3.2.0
 Flask-SQLAlchemy==3.0.5
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://user:password@host/dbname'
+sample_books = [
+    ("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", "Fantasy", 5),
+    ("The Alchemist", "Paulo Coelho", "Fiction", 4),
+    ("Wings of Fire", "A.P.J. Abdul Kalam", "Biography", 3),
+    ("Atomic Habits", "James Clear", "Self Help", 6),
+    ("Rich Dad Poor Dad", "Robert Kiyosaki", "Finance", 5),
+    ("1984", "George Orwell", "Dystopian", 4),
+    ("The Psychology of Money", "Morgan Housel", "Finance", 6),
+    ("Think and Grow Rich", "Napoleon Hill", "Self Help", 5),
+    ("Ikigai", "Héctor García", "Motivational", 4),
+    ("The Hobbit", "J.R.R. Tolkien", "Fantasy", 3)
+]
+
+for title, author, genre, qty in sample_books:
+    book = Book(title=title, author=author, genre=genre, available_qty=qty)
+    db.session.add(book)
+
+db.session.commit()
+INSERT INTO book (title, author, genre, available_qty) VALUES
+('Harry Potter and the Sorcerer''s Stone', 'J.K. Rowling', 'Fantasy', 5),
+('The Alchemist', 'Paulo Coelho', 'Fiction', 4),
+('Wings of Fire', 'A.P.J. Abdul Kalam', 'Biography', 3),
+('Atomic Habits', 'James Clear', 'Self Help', 6),
+('Rich Dad Poor Dad', 'Robert Kiyosaki', 'Finance', 5),
+('1984', 'George Orwell', 'Dystopian', 4),
+('The Psychology of Money', 'Morgan Housel', 'Finance', 6),
+('Think and Grow Rich', 'Napoleon Hill', 'Self Help', 5),
+('Ikigai', 'Héctor García', 'Motivational', 4),
+('The Hobbit', 'J.R.R. Tolkien', 'Fantasy', 3);
